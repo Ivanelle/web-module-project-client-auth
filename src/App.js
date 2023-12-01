@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Route, Routes, Link} from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 
 import Login from './components/Login';
 import FriendsList from './components/FriendsList';
 import AddFriend from './components/AddFriends';
 import Logout from './components/Logout';
-import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -22,8 +21,8 @@ function App() {
         <>
           <Route path="/"  element={<Login />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/friends" component={<PrivateRoute element={FriendsList} />} />
-          <Route path="/friends/add" element={<PrivateRoute element={AddFriend} />} />
+          <Route path="/friends" element={<FriendsList />} />
+          <Route path="/friends/add" element={<AddFriend />} />
           <Route path="/logout" element={<Logout />} />
         </>
         </Routes> 

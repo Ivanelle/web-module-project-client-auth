@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 
 const Logout = () => {
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
-        const token = localStorage.setItem("token")
-        const navigate = useNavigate();
+        const token = localStorage.setItem("token", {})
         axios.post('http://localhost:9000/api/logout',{}, {
             headers: {
                 authorization: token

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,14 @@ const AddFriend = () => {
         age: '',
         email: ''
     })
+
+    useEffect(() => {
+        if (!localStorage.getItem("token")) {
+            navigate('/login')
+        } else {
+            navigate('/friends/add')
+        }
+    }, [])
 
     const handleChange = (e) => {
         setForm({
